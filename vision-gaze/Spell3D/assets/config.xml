@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <Marker type="id-frame" id="1" size="50 50" name="mymarker2" />
+    <Marker type="id-frame" id="2" size="50 50" name="mymarker3" /> 
+    <Marker type="id-frame" id="3" size="50 50" name="mymarker4" /> 				
+  	<Marker type="id-frame" id="4" size="50 50" name="mymarker5" /> 
+    <Marker type="id-frame" id="5" size="50 50" name="mymarker6" />
+    <Marker type="id-frame" id="6" size="50 50" name="mymarker7" />
+    <Marker type="id-frame" id="7" size="50 50" name="mymarker8" />
+    <Marker type="id-frame" id="0" size="50 50" name="mymarker1" /> 
+  	<Marker type="id-frame" id="8" size="50 50" name="mymarker9" /> 
+    <Marker type="id-frame" id="9" size="50 50" name="mymarker10" />
+    <Marker type="id-frame" id="10" size="50 50" name="mymarker11" />
+    <Marker type="id-frame" id="11" size="50 50" name="mymarker12" /> 				
+  	<Marker type="id-frame" id="12" size="50 50" name="mymarker13" /> 
+    <Marker type="id-frame" id="13" size="50 50" name="mymarker14" />
+    <Marker type="id-frame" id="14" size="50 50" name="mymarker15" />
+    <Marker type="id-frame" id="15" size="50 50" name="mymarker16" /> 
+    <Marker type="id-frame" id="16" size="50 50" name="mymarker17" /> 
+    <Marker type="id-frame" id="17" size="50 50" name="mymarker18" />
+    <Marker type="id-frame" id="18" size="50 50" name="mymarker19" />
+    <Marker type="id-frame" id="19" size="50 50" name="mymarker20" /> 				
+  	<Marker type="id-frame" id="20" size="50 50" name="mymarker21" /> 
+    <Marker type="id-frame" id="21" size="50 50" name="mymarker22" />
+    <Marker type="id-frame" id="22" size="50 50" name="mymarker23" />
+    <Marker type="id-frame" id="23" size="50 50" name="mymarker24" /> 
+  	<Marker type="id-frame" id="24" size="50 50" name="mymarker25" />
+	<Marker type="id-frame" id="25" size="50 50" name="mymarker26" /> 
+  </Tracking>
+</QCARConfig>
