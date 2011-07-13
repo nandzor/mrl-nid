@@ -1,7 +1,5 @@
 #summary Instructions for groups to submit/work on their code on this repository.
 
-= Details =
-
 Code is organized as per your own project names. You can access the code for your project as sub-folders within this repository. 
 
 For example, code for the Indic text input project can be accessed at - 
