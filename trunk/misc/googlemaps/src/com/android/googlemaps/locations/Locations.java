@@ -62,7 +62,7 @@ public class Locations {
         if(subtypes_ids == null){
         	subtypes_ids = id;
         }else{
-		subtypes_ids.concat(","+id);
+		subtypes_ids = subtypes_ids.concat(","+id);
         }
 	}
 	

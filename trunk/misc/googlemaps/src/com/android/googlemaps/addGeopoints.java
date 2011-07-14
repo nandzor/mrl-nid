@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class addGeopoints extends Activity {
 private EditText name_add;
@@ -37,18 +38,17 @@ private TextView type;
 		Button addButton = (Button) findViewById(R.id.add_button);
 		Button cancelButton = (Button) findViewById(R.id.cancel_button);
 		type = (TextView) findViewById(R.id.type);
-		//type.setText("TYPE : "+ type_name);
+		type.setText("TYPE : "+ type_name);
 		typeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Intent intent = new Intent(addGeopoints.this, addDetails.class);
 		        startActivity(intent);
-		        //for(;;)
-		        	type.setText("TYPE : "+ type_name);
-		      }
+	      }
         });
 		addButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 addPoints();
+                
                 Intent intent = new Intent(addGeopoints.this, GoogleMaps.class);
 		        startActivity(intent);
 		    }
@@ -60,10 +60,7 @@ private TextView type;
 		});
 	}
 	
-  	public void setTypeText(String name){
-		
-		type.setText("TYPE : "+ name);
-	}
+  	
 	
 	private void addPoints() {
 		// TODO Auto-generated method stub
@@ -74,12 +71,14 @@ private TextView type;
 	    l.setName(name_add.getText().toString());
 	    l.setLatitude(new Double(latitude_add.getText().toString()));
 	    l.setType(type_name);
-	    for(int i = 0 ; i <subtype_id.size(); i++ ){
-	    	l.addSubtype_id(String.valueOf(subtype_id.get(0)));
+	    for(int i = 0 ; i < subtype_id.size(); i++ ){
+	    	l.addSubtype_id(String.valueOf(subtype_id.get(i)));
+	    	//Toast.makeText(this, "added id " + subtype_id.get(i), Toast.LENGTH_LONG).show();
 	    }
-	    	
+	    //Toast.makeText(this, l.getSubtypes_ids(),Toast.LENGTH_SHORT).show();
 	    l.setLongitude(new Double(longitude_add.getText().toString()));
 	     getPointManagerApplication().addLocation(l);
+	     
 	}
 
 	private pointsManager getPointManagerApplication() {

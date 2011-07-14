@@ -1,6 +1,5 @@
 package com.android.googlemaps;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.graphics.Canvas;
@@ -8,7 +7,6 @@ import android.os.Bundle;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -19,20 +17,16 @@ import com.android.googlemaps.locations.Locations;
 import com.google.android.maps.GeoPoint;
 import com.google.android.maps.ItemizedOverlay;
 import com.google.android.maps.MapActivity;
-import com.google.android.maps.MapController;
 import com.google.android.maps.MapView;
 import com.google.android.maps.MyLocationOverlay;
 import com.google.android.maps.OverlayItem;
 
-import android.view.GestureDetector.OnDoubleTapListener;
-import android.view.GestureDetector.OnGestureListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GoogleMaps extends MapActivity implements OnGestureListener , OnDoubleTapListener{
+public class GoogleMaps extends MapActivity{
 	private MapView map=null;
 	private MyLocationOverlay me=null;
-	private MapController mapController;
 	private ArrayList<Locations> location;
 	
 	
@@ -46,16 +40,6 @@ public class GoogleMaps extends MapActivity implements OnGestureListener , OnDou
 		map.setSatellite(false);
 		map.setBuiltInZoomControls(true);
 		getOverlaysitems();
-		/*Drawable marker=getResources().getDrawable(R.drawable.marker);
-        		
-    marker.setBounds(0, 0, marker.getIntrinsicWidth(),
- 						marker.getIntrinsicHeight());
-		GeoPoint g = getPoint(23.18865102161924,72.62698888778687);
-		String n = "Kokel";		
-		map.getOverlays().add(new SitesOverlay(marker , g, n));
-		g = getPoint(23.1885,72.6290);
-		n = "heena";
-		map.getOverlays().add(new SitesOverlay(marker , g, n));*/
 		me=new MyLocationOverlay(this, map);
 		map.getOverlays().add(me);	
 	CheckBox satelliteView = (CheckBox) findViewById(R.id.satellite_view);
@@ -129,10 +113,7 @@ public class GoogleMaps extends MapActivity implements OnGestureListener , OnDou
 		return pma;
 	}
 
-	private GeoPoint getPoint(double lat, double lon) {
-		return(new GeoPoint((int)(lat*1000000.0),
-							(int)(lon*1000000.0)));
-	    }
+	
 	
 	public boolean onCreateOptionsMenu(Menu menu) {
     	super.onCreateOptionsMenu(menu);
@@ -190,75 +171,16 @@ public class GoogleMaps extends MapActivity implements OnGestureListener , OnDou
 	private class SitesOverlay extends ItemizedOverlay<OverlayItem> {
 		private List<OverlayItem> items=new ArrayList<OverlayItem>();
 			private Drawable marker=null;
-	    	private ArrayList<Locations> location;
-
-			
+	    				
 			public SitesOverlay(Drawable marker, GeoPoint g, String n) {
 				super(marker);
 				this.marker=marker;
-			 items.add(new OverlayItem(g, "DA", n));
-			/*items.add(new OverlayItem(getPoint
-					(23.188909901214362,72.62872159481049),
-								"DA", "Resource centre"));
-	      
-			/*	items.add(new OverlayItem(getPoint
-						(23.188554866213448,72.6290112733841),
-									"DA", "Lotus Pond"));
-				items.add(new OverlayItem(getPoint
-						(23.18841926231854,72.62804567813873),
-									"DA", "CEP Building"));
-				items.add(new OverlayItem(getPoint
-						(23.18865102161924,72.62698888778687),
-									"DA", "Cafeteria"));
-				items.add(new OverlayItem(getPoint
-						(23.18865102161924,72.62698888778687),
-									"DA", "Cafeteria"));
-				items.add(new OverlayItem(getPoint
-				    	(23.187006508109413,72.62817174196243),
-									"DA", "Lab Building"));
-				items.add(new OverlayItem(getPoint
-						(23.186631743581287,72.62897104024887),
-									"DA", "Lecture Theatre-3"));
-				items.add(new OverlayItem(getPoint
-						(23.186525724478216,72.62889593839645),
-									"DA", "Lecture Theatre-2"));
-				items.add(new OverlayItem(getPoint
-						(23.186326013846504,72.62861162424088),
-									"DA", "Lecture Theatre-1"));
-				items.add(new OverlayItem(getPoint
-						(23.18912933209788,72.62700766324997),
-									"DA", "Open Air Theatre"));
-				items.add(new OverlayItem(getPoint
-						(23.188993728785398,72.62804836034775),
-									"DA", "Administration Block"));
-				items.add(new OverlayItem(getPoint
-						(23.189338900583127,72.62799471616745),
-									"DA", "Faculty Block-4"));
-				items.add(new OverlayItem(getPoint
-						(23.18953614121045,72.62823611497879),
-									"DA", "Faculty Block-3"));
-				items.add(new OverlayItem(getPoint
-						(23.18934136609277,72.62861162424088),
-									"DA", "Faculty Block-2"));
-				items.add(new OverlayItem(getPoint
-						(23.189235349137334,72.6288852095604),
-									"DA", "Faculty Block-1"));*/
+			 items.add(new OverlayItem(g, "200901199", n));
 				populate();
 			}
 			
 		
-			private pointsManager getPointManagerApplication() {
-				// TODO Auto-generated method stub
-				pointsManager pma = (pointsManager) getApplication();
-				return pma;
-			}
-
-			private GeoPoint getPoint(double lat, double lon) {
-			return(new GeoPoint((int)(lat*1000000.0),
-								(int)(lon*1000000.0)));
-		    }
-
-			@Override
+		@Override
 			protected OverlayItem createItem(int i) {
 				return(items.get(i));
 			}
@@ -286,73 +208,5 @@ public class GoogleMaps extends MapActivity implements OnGestureListener , OnDou
 				return(items.size());
 			}
 		}
-	
-	public boolean onDoubleTap(MotionEvent e) {
-	    GeoPoint p = map.getProjection().fromPixels((int)e.getX(), (int)e.getY());
-	    
-	    AlertDialog.Builder dialog = new AlertDialog.Builder(this);
-	    dialog.setTitle("Double Tap");
-	    dialog.setMessage("Location: " + p.getLatitudeE6() + ", " + p.getLongitudeE6());
-	    dialog.show();
-	    
-	    return true;
-	  }
-	
-	@Override
-	public boolean onTouchEvent(MotionEvent event) {
-		// TODO Auto-generated method stub
-		mapController = map.getController();
-		mapController.zoomIn();
-		return true;
-	}
-	
-	@Override
-	public boolean onDoubleTapEvent(MotionEvent e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 
-	@Override
-	public boolean onSingleTapConfirmed(MotionEvent e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean onDown(MotionEvent e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX,
-			float velocityY) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void onLongPress(MotionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX,
-			float distanceY) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public void onShowPress(MotionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean onSingleTapUp(MotionEvent e) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }
