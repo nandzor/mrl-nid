@@ -32,28 +32,14 @@ public class addSubtype extends ListActivity {
         //Toast.makeText(this, "You selected: "+ id[0], Toast.LENGTH_LONG).show();
 	}
 	
-/*	public boolean onCreateOptionsMenu(Menu menu) {
-	    super.onCreateOptionsMenu(menu);
-		menu.add(0, Menu.FIRST,   Menu.NONE, "Do").setIcon(R.drawable.add);
-		return true;
-	}
 
-	@Override
-	public boolean onOptionsItemSelected(MenuItem item) {
-		// TODO Auto-generated method stub
-		 super.onOptionsItemSelected(item);
-         Intent intent = new Intent(addSubtype.this,addGeopoints.class);
-         startActivity(intent);
-		 return true;
-	}*/
-	
 	protected void onListItemClick(ListView l, View v, int position, long id) {
 		super.onListItemClick(l, v, position, id);
 		// Get the item that was clicked
 		
 		Object o = this.getListAdapter().getItem(position);
 		String keyword = o.toString();
-		Toast.makeText(this, "You selected: " + keyword , Toast.LENGTH_LONG).show();
+		//Toast.makeText(this, "You selected: " + keyword , Toast.LENGTH_LONG).show();
 		Cursor c = getPointManagerApplication().getTypeId(keyword);
 		int s_id = c.getInt(0);
 		if(subtypes.contains(keyword))
@@ -63,6 +49,7 @@ public class addSubtype extends ListActivity {
 		}else {
 			subtypes.add(keyword);
 			subtype_id.add(s_id);
+			//Toast.makeText(this, "added in subtype_id " + s_id , Toast.LENGTH_LONG).show();
 		}
 	  
 	}

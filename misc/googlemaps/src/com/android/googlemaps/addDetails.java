@@ -64,7 +64,7 @@ public class addDetails extends ListActivity {
 //	 	addGeopoints g = new addGeopoints();
 //	 	g.setTypeText(type_name);
     	type_id = c.getInt(0);
-		Toast.makeText(this, "You selected: " + keyword , Toast.LENGTH_LONG).show();
+		//Toast.makeText(this, "You selected: " + keyword , Toast.LENGTH_LONG).show();
 		Intent intent = new Intent(addDetails.this, addSubtype.class);
 		startActivity(intent);
 	}

@@ -113,6 +113,10 @@ public class pointsManager extends Application {
 	       long id = database1.insert(LOCATION_TABLE,null, values);
 	       l.setID(id);
 	     //  locations.add(l);
+	       type_name = null;
+	       subtype_id = new ArrayList() ;
+	       subtypes = new ArrayList<String>();
+           type_id = 0;
 	}
             
    public ArrayList<Locations> getLocations(){
