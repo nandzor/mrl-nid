@@ -251,7 +251,7 @@ public class Spell3D extends Activity
         //helper = new MarkerIdSQLiteOpenHelper(this);
         
         // Set the splash screen image to display during initialization:
-        mSplashScreenImageResource = R.drawable.splash_screen_frame_markers;
+        mSplashScreenImageResource = R.drawable.splash_screen_frame_markers_spell3d;
         
         // Load any sample specific textures:  
         mTextures = new Vector<Texture>();
