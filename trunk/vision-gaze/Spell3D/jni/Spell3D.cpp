@@ -108,7 +108,6 @@ Java_com_nid_mrl_Spell3D_Renderer3D_renderFrame(JNIEnv *env, jobject obj)
         // Get the trackable:
         const QCAR::Trackable* trackable = state.getActiveTrackable(tIdx);
         QCAR::Matrix44F modelViewMatrix = QCAR::Tool::convertPose2GLMatrix(trackable->getPose()); 
-        //SampleUtils::translatePoseMatrix(-kLetterTranslate,-kLetterTranslate,0.f,&modelViewMatrix.data[0]);
         SampleUtils::scalePoseMatrix(kLetterScale, kLetterScale, kLetterScale, &modelViewMatrix.data[0]);    
         //SampleUtils::rotatePoseMatrix(45.f, 0.f, 0.f, 0.f,
         //                      &modelViewMatrix.data[0]);
