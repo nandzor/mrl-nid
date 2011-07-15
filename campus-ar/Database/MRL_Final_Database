@@ -1,0 +1,337 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.0.91-log
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema mrlnmd
+--
+
+CREATE DATABASE IF NOT EXISTS mrlnmd;
+USE mrlnmd;
+
+--
+-- Definition of table `OBJECT_Table`
+--
+
+DROP TABLE IF EXISTS `OBJECT_Table`;
+CREATE TABLE `OBJECT_Table` (
+  `ID` int(10) NOT NULL auto_increment,
+  `poiID` varchar(255) NOT NULL,
+  `baseURL` varchar(255) NOT NULL,
+  `full` varchar(255) NOT NULL,
+  `reduced` varchar(255) default NULL,
+  `icon` varchar(255) default NULL,
+  `size` float(15,5) NOT NULL,
+  PRIMARY KEY  (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `OBJECT_Table`
+--
+
+/*!40000 ALTER TABLE `OBJECT_Table` DISABLE KEYS */;
+INSERT INTO `OBJECT_Table` (`ID`,`poiID`,`baseURL`,`full`,`reduced`,`icon`,`size`) VALUES 
+ (1,'1','http://custom.layar.nl','layarimage_full.jpg','layarimage_reduced.jpg','layarimage_icon',128.00000);
+/*!40000 ALTER TABLE `OBJECT_Table` ENABLE KEYS */;
+
+
+--
+-- Definition of table `TRANSFORM_Table`
+--
+
+DROP TABLE IF EXISTS `TRANSFORM_Table`;
+CREATE TABLE `TRANSFORM_Table` (
+  `ID` int(10) NOT NULL auto_increment,
+  `poiID` varchar(255) NOT NULL,
+  `rel` tinyint(1) default '0',
+  `angle` decimal(5,2) default '0.00',
+  `scale` decimal(12,2) NOT NULL default '1.00',
+  PRIMARY KEY  (`ID`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `TRANSFORM_Table`
+--
+
+/*!40000 ALTER TABLE `TRANSFORM_Table` DISABLE KEYS */;
+INSERT INTO `TRANSFORM_Table` (`ID`,`poiID`,`rel`,`angle`,`scale`) VALUES 
+ (1,'1',1,'0.00','1.00');
+/*!40000 ALTER TABLE `TRANSFORM_Table` ENABLE KEYS */;
+
+
+--
+-- Definition of table `actiontable`
+--
+
+DROP TABLE IF EXISTS `actiontable`;
+CREATE TABLE `actiontable` (
+  `poiID` int(10) unsigned NOT NULL,
+  `Label` varchar(45) NOT NULL,
+  `uri` varchar(45) NOT NULL,
+  `autoTriggerRange` int(10) unsigned NOT NULL,
+  `ID` varchar(45) NOT NULL,
+  `contentType` varchar(45) NOT NULL,
+  `activityType` int(10) unsigned NOT NULL,
+  `autoTriggerOnly` tinyint(1) unsigned NOT NULL,
+  PRIMARY KEY  (`ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `actiontable`
+--
+
+/*!40000 ALTER TABLE `actiontable` DISABLE KEYS */;
+INSERT INTO `actiontable` (`poiID`,`Label`,`uri`,`autoTriggerRange`,`ID`,`contentType`,`activityType`,`autoTriggerOnly`) VALUES 
+ (1,'contact sports','www.daiict.ac.in',1000,'1','text/html',2,1),
+ (1,'email sports','mailto:alpesh1988@gmail.com',2000,'2','application/vnd.layar.internal',1,1);
+/*!40000 ALTER TABLE `actiontable` ENABLE KEYS */;
+
+
+--
+-- Definition of table `filterdaiict`
+--
+
+DROP TABLE IF EXISTS `filterdaiict`;
+CREATE TABLE `filterdaiict` (
+  `id` int(10) unsigned NOT NULL default '0',
+  `LayarType` varchar(45) NOT NULL,
+  `Attribution` varchar(45) NOT NULL,
+  `Title` varchar(45) NOT NULL,
+  `Latitude` decimal(20,18) NOT NULL,
+  `Longitude` decimal(20,18) NOT NULL,
+  `LayerName` varchar(45) NOT NULL,
+  `type` int(10) unsigned NOT NULL default '1',
+  `Checkbox` enum('1','2','3','4','5','6','7','8') default NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `filterdaiict`
+--
+
+/*!40000 ALTER TABLE `filterdaiict` DISABLE KEYS */;
+INSERT INTO `filterdaiict` (`id`,`LayarType`,`Attribution`,`Title`,`Latitude`,`Longitude`,`LayerName`,`type`,`Checkbox`) VALUES 
+ (1,'Sports','DAIICT','Sport Ground','23.190144000000000000','72.627299000000000000','filterdaiict1',1,'1'),
+ (2,'Sports','DAIICT','Basketball courts','23.190756000000000000','72.626704000000000000','filterdaiict1',1,'1'),
+ (3,'Sports','DAIICT','Volleyball courts','23.189661000000000000','72.626671000000000000','filterdaiict1',1,'1'),
+ (4,'Sports','DAIICT','Sports And Cultural Complex','23.189350000000000000','72.627079000000000000','filterdaiict1',1,'1'),
+ (5,'Library','DAIICT','Bookstore','23.189311000000000000','72.627288000000000000','filterdaiict1',1,'2'),
+ (6,'Library','DAIICT','Resource Center','23.188995000000000000','72.628737000000000000','filterdaiict1',1,'2'),
+ (7,'Timepass','DAIICT','Open Air Theatre','23.189000000000000000','72.627176000000000000','filterdaiict1',1,'3'),
+ (8,'Timepass','DAIICT','Lotus Pond','23.188611000000000000','72.629005000000000000','filterdaiict1',1,'3'),
+ (9,'Food','DAIICT','Cafeteria','23.188749000000000000','72.627299000000000000','filterdaiict1',1,'4'),
+ (10,'Residence','DAIICT','Hostel Wing A','23.187047000000000000','72.626934000000000000','filterdaiict1',1,'5'),
+ (11,'Residence','DAIICT','Hostel Wing B','23.187343000000000000','72.626779000000000000','filterdaiict1',1,'5'),
+ (12,'Residence','DAIICT','Hostel Wing C','23.187545000000000000','72.627251000000000000','filterdaiict1',1,'5'),
+ (13,'Residence','DAIICT','Hostel Wing D','23.187294000000000000','72.627256000000000000','filterdaiict1',1,'5'),
+ (14,'Residence','DAIICT','Hostel Wing E','23.187945000000000000','72.626875000000000000','filterdaiict1',1,'5'),
+ (15,'Residence','DAIICT','Hostel Wing F','23.188137000000000000','72.627256000000000000','filterdaiict1',1,'5'),
+ (16,'Residence','DAIICT','Hostel Wing G','23.187979000000000000','72.627524000000000000','filterdaiict1',1,'5'),
+ (17,'Residence','DAIICT','Hostel Wing H','23.187531000000000000','72.626736000000000000','filterdaiict1',1,'5'),
+ (18,'Residence','DAIICT','Girls Hostel','23.190425000000000000','72.628174000000000000','filterdaiict1',1,'5'),
+ (19,'Residence','DAIICT','Facutly Residence','23.190336000000000000','72.629472000000000000','filterdaiict1',1,'5'),
+ (20,'Classes','DAIICT','Lecture Theatre 1','23.186431000000000000','72.628774000000000000','filterdaiict1',1,'6'),
+ (21,'Classes','DAIICT','Lecture Theatre 2','23.186742000000000000','72.629144000000000000','filterdaiict1',1,'6'),
+ (22,'Classes','DAIICT','Lecture Theatre 3','23.186540000000000000','72.629107000000000000','filterdaiict1',1,'6'),
+ (23,'Classes','DAIICT','Lab','23.187107000000000000','72.628318000000000000','filterdaiict1',1,'6'),
+ (24,'Classes','DAIICT','Continuing Education Program','23.188532000000000000','72.628141000000000000','filterdaiict1',1,'6'),
+ (25,'Office','DAIICT','Admin Block','23.189015000000000000','72.628259000000000000','filterdaiict1',1,'7'),
+ (26,'Office','DAIICT','Faculty Block 1','23.189252000000000000','72.629000000000000000','filterdaiict1',1,'7'),
+ (27,'Office','DAIICT','Faculty Block 2','23.189335000000000000','72.628839000000000000','filterdaiict1',1,'7'),
+ (28,'Office','DAIICT','Faculty Block 3','23.189518000000000000','72.628474000000000000','filterdaiict1',1,'7'),
+ (29,'Office','DAIICT','Faculty Block 4','23.189326000000000000','72.628195000000000000','filterdaiict1',1,'7'),
+ (30,'System','DAIICT','Water Treatment Plant','23.186106000000000000','72.627396000000000000','filterdaiict1',1,'8'),
+ (31,'System','DAIICT','Power Room','23.185913000000000000','72.629525000000000000','filterdaiict1',1,'8'),
+ (32,'System','DAIICT','Reliance Tower','23.190839000000000000','72.628034000000000000','filterdaiict1',1,'8');
+/*!40000 ALTER TABLE `filterdaiict` ENABLE KEYS */;
+
+
+--
+-- Definition of table `filtertable`
+--
+
+DROP TABLE IF EXISTS `filtertable`;
+CREATE TABLE `filtertable` (
+  `poiID` int(10) unsigned NOT NULL,
+  `label` varchar(45) NOT NULL,
+  `uri` varchar(120) NOT NULL,
+  `autoTriggerRange` int(10) unsigned NOT NULL,
+  `ID` varchar(45) NOT NULL,
+  `contentType` varchar(45) NOT NULL,
+  `activityType` int(10) unsigned NOT NULL,
+  `autoTriggerOnly` tinyint(1) unsigned NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `filtertable`
+--
+
+/*!40000 ALTER TABLE `filtertable` DISABLE KEYS */;
+INSERT INTO `filtertable` (`poiID`,`label`,`uri`,`autoTriggerRange`,`ID`,`contentType`,`activityType`,`autoTriggerOnly`) VALUES 
+ (10,'Show timings','http://mrl.openmap.in/Points_Manipulation/displayShow.php',5000,'1','text/html',2,1),
+ (10,'email citypulse','mailto:alpesh1988@gmail.com',5000,'2','application/vnd.layar.internal',1,1),
+ (10,'call citypluse','tel:09638184986',5000,'3','application/vnd.layar.internal',3,1);
+/*!40000 ALTER TABLE `filtertable` ENABLE KEYS */;
+
+
+--
+-- Definition of table `nrl`
+--
+
+DROP TABLE IF EXISTS `nrl`;
+CREATE TABLE `nrl` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `LayarType` varchar(45) NOT NULL,
+  `Attribution` varchar(45) NOT NULL,
+  `Title` varchar(45) NOT NULL,
+  `Latitude` decimal(20,18) NOT NULL,
+  `Longitude` decimal(20,18) NOT NULL,
+  `LayerName` varchar(45) NOT NULL,
+  `type` int(10) unsigned NOT NULL default '1',
+  PRIMARY KEY  (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `nrl`
+--
+
+/*!40000 ALTER TABLE `nrl` DISABLE KEYS */;
+INSERT INTO `nrl` (`id`,`LayarType`,`Attribution`,`Title`,`Latitude`,`Longitude`,`LayerName`,`type`) VALUES 
+ (1,'office','NRL','kitchen','23.187163000000000000','72.632581000000000000','hiteshlayer',1),
+ (2,'office','NRL','room-2','23.187155000000000000','72.632527000000000000','hiteshlayer',1),
+ (3,'office','NRL','room-1','23.187212000000000000','72.632570000000000000','hiteshlayer',1);
+/*!40000 ALTER TABLE `nrl` ENABLE KEYS */;
+
+
+--
+-- Definition of table `pointdaiict`
+--
+
+DROP TABLE IF EXISTS `pointdaiict`;
+CREATE TABLE `pointdaiict` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `LayarType` varchar(45) NOT NULL,
+  `Attribution` varchar(45) NOT NULL,
+  `Title` varchar(45) NOT NULL,
+  `Latitude` decimal(20,18) NOT NULL,
+  `Longitude` decimal(20,18) NOT NULL,
+  `LayerName` varchar(45) NOT NULL,
+  `type` int(10) unsigned NOT NULL default '1',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=33 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pointdaiict`
+--
+
+/*!40000 ALTER TABLE `pointdaiict` DISABLE KEYS */;
+INSERT INTO `pointdaiict` (`id`,`LayarType`,`Attribution`,`Title`,`Latitude`,`Longitude`,`LayerName`,`type`) VALUES 
+ (1,'Sports','DAIICT','Sport Ground','23.190220000000000000','72.627030000000000000','trialdaiict1',1),
+ (2,'Sports','DAIICT','Basketball courts','23.190780000000000000','72.626500000000000000','trialdaiict1',1),
+ (3,'Sports','DAIICT','Volleyball courts','23.189580000000000000','72.626330000000000000','trialdaiict1',1),
+ (4,'Sports','DAIICT','Sports And Cultural Complex','23.189308000000000000','72.626860000000000000','trialdaiict1',1),
+ (5,'Library','DAIICT','Bookstore','23.189317000000000000','72.627109000000000000','trialdaiict1',1),
+ (6,'Library','DAIICT','Resource Center','23.188890000000000000','72.628580000000000000','trialdaiict1',1),
+ (7,'Timepass','DAIICT','Open Air Theatre','23.189051000000000000','72.627000000000000000','trialdaiict1',1),
+ (8,'Timepass','DAIICT','Lotus Pond','23.188556000000000000','72.629014000000000000','trialdaiict1',1),
+ (9,'Food','DAIICT','Cafeteria','23.188837000000000000','72.627126000000000000','trialdaiict1',1),
+ (10,'Residence','DAIICT','Hostel Wing A','23.187110000000000000','72.626810000000000000','trialdaiict1',1),
+ (11,'Residence','DAIICT','Hostel Wing B','23.187417000000000000','72.626863000000000000','trialdaiict1',1),
+ (12,'Residence','DAIICT','Hostel Wing C','23.187412000000000000','72.627241000000000000','trialdaiict1',1),
+ (13,'Residence','DAIICT','Hostel Wing D','23.187126000000000000','72.627225000000000000','trialdaiict1',1),
+ (14,'Residence','DAIICT','Hostel Wing E','23.188058000000000000','72.626820000000000000','trialdaiict1',1),
+ (15,'Residence','DAIICT','Hostel Wing F','23.188067000000000000','72.627225000000000000','trialdaiict1',1),
+ (16,'Residence','DAIICT','Hostel Wing G','23.187720000000000000','72.627330000000000000','trialdaiict1',1),
+ (17,'Residence','DAIICT','Hostel Wing H','23.187732000000000000','72.626662000000000000','trialdaiict1',1),
+ (18,'Residence','DAIICT','Girls Hostel','23.189890000000000000','72.628440000000000000','trialdaiict1',1),
+ (19,'Residence','DAIICT','Facutly Residence','23.189860000000000000','72.629140000000000000','trialdaiict1',1),
+ (20,'Classes','DAIICT','Lecture Theatre 1','23.186364000000000000','72.628619000000000000','trialdaiict1',1),
+ (21,'Classes','DAIICT','Lecture Theatre 2','23.186423000000000000','72.628834000000000000','trialdaiict1',1),
+ (22,'Classes','DAIICT','Lecture Theatre 3','23.186667000000000000','72.629022000000000000','trialdaiict1',1),
+ (23,'Classes','DAIICT','Lab','23.187110000000000000','72.628140000000000000','trialdaiict1',1),
+ (24,'Classes','DAIICT','Continuing Education Program','23.188442000000000000','72.628030000000000000','trialdaiict1',1),
+ (25,'Office','DAIICT','Admin Block','23.189060000000000000','72.627860000000000000','trialdaiict1',1),
+ (26,'Office','DAIICT','Faculty Block 1','23.189221000000000000','72.628845000000000000','trialdaiict1',1),
+ (27,'Office','DAIICT','Faculty Block 2','23.189362000000000000','72.628617000000000000','trialdaiict1',1),
+ (28,'Office','DAIICT','Faculty Block 3','23.189527000000000000','72.628244000000000000','trialdaiict1',1),
+ (29,'Office','DAIICT','Faculty Block 4','23.189330000000000000','72.627920000000000000','trialdaiict1',1),
+ (30,'System','DAIICT','Water Treatment Plant','23.186060000000000000','72.627158000000000000','trialdaiict1',1),
+ (31,'System','DAIICT','Power Room','23.185957000000000000','72.629360000000000000','trialdaiict1',1),
+ (32,'System','DAIICT','Reliance Tower','23.190690000000000000','72.627720000000000000','trialdaiict1',1);
+/*!40000 ALTER TABLE `pointdaiict` ENABLE KEYS */;
+
+
+--
+-- Definition of table `pointtable`
+--
+
+DROP TABLE IF EXISTS `pointtable`;
+CREATE TABLE `pointtable` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `LayarType` varchar(45) NOT NULL,
+  `Attribution` varchar(45) NOT NULL,
+  `Title` varchar(45) NOT NULL,
+  `Latitude` decimal(20,18) NOT NULL,
+  `Longitude` decimal(20,18) NOT NULL,
+  `LayerName` varchar(45) NOT NULL,
+  `type` int(10) unsigned NOT NULL default '1',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pointtable`
+--
+
+/*!40000 ALTER TABLE `pointtable` DISABLE KEYS */;
+INSERT INTO `pointtable` (`id`,`LayarType`,`Attribution`,`Title`,`Latitude`,`Longitude`,`LayerName`,`type`) VALUES 
+ (1,'school','Residence','school of Achiever','23.189527000000000000','72.615548000000000000','paputrial',1),
+ (2,'Enjoyment','Garden','Public park','23.201125000000000000','72.626148000000000000','paputrial',1),
+ (6,'shopping','Infocity','TCS','23.193097000000000000','72.636663000000000000','paputrial',1),
+ (10,'Theatre','Movie','Citypulse','23.175483000000000000','72.639560000000000000','paputrial',1);
+/*!40000 ALTER TABLE `pointtable` ENABLE KEYS */;
+
+
+--
+-- Definition of table `timings`
+--
+
+DROP TABLE IF EXISTS `timings`;
+CREATE TABLE `timings` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `movie_name` varchar(60) NOT NULL,
+  `movie_time` timestamp NOT NULL default CURRENT_TIMESTAMP on update CURRENT_TIMESTAMP,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `timings`
+--
+
+/*!40000 ALTER TABLE `timings` DISABLE KEYS */;
+INSERT INTO `timings` (`id`,`movie_name`,`movie_time`) VALUES 
+ (1,'wanted','2011-06-09 05:42:29'),
+ (2,'ready','2011-06-09 05:31:44'),
+ (3,'pyar ka pachnaama','2011-06-09 05:43:03');
+/*!40000 ALTER TABLE `timings` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
