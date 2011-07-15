@@ -27,7 +27,7 @@ function SavaData(totalfields)
 	{
 		fields=fields+"?"+document.getElementById("t"+i).value;
 	}
-	post_to_url('http://mrl.openmap.in/Points_Manipulation/delete_data.php', {'operation':fields});
+	post_to_url('delete_data.php', {'operation':fields});
 	//alert("data saved");
 }
 function ClearAll()
@@ -64,9 +64,9 @@ function getChecked(totalColumn)
 	}
 	alert(fields);
 	fields="d"+fields;
-	post_to_url('http://mrl.openmap.in/Points_Manipulation/delete_data.php', {'operation':fields});
-	//post_to_url('http://mrl.openmap.in/Points_Manipulation/delete_data.php', {'mode':'d'});
-	//window.location = "http://mrl.openmap.in/Points_Manipulation/delete_data.php"
+	post_to_url('delete_data.php', {'operation':fields});
+	//post_to_url('delete_data.php', {'mode':'d'});
+	//window.location = "delete_data.php"
 }
 
 	function post_to_url(path, params, method) {

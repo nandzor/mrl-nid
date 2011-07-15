@@ -3,17 +3,17 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>Test Document</title>
- <script type="text/javascript"  language="javascript" src="http://mrl.openmap.in/Points_Manipulation/functions.js">
+ <script type="text/javascript"  language="javascript" src="functions.js">
 </script>
 </head>
 
 <body>
 <?php
-$user="mrlnmd";
-$pwd="StHxMo3C";
-$db="mrlnmd";
+$user="root";
+$pwd="";
+$db="test";
 $tablename="pointdaiict";
-$host="mrlnmd.db.5537199.hostedresource.com";
+$host="localhost";
 mysql_connect($host,$user,$pwd) or die("Connection Failed");
 $dblink=mysql_select_db($db) or die("could not select the database");
 $qry="SELECT * FROM ". $tablename;
@@ -57,6 +57,54 @@ for($cnt=0;$cnt<mysql_num_fields($res_data);$cnt++)
 	echo "<td><strong>".ucfirst(mysql_field_name($res_data,$cnt))."</strong></td>\n";
 }
 echo "</tr>";
+
+/*
+while($arr=mysql_fetch_assoc($res_data))
+{
+	$i=0;
+	echo "<tr id=$i onMouseDown=\"setData(this)\" onMouseOver=\"ChangeColor(this, true);\" 
+              onMouseOut=\"ChangeColor(this, false);\"  style=\"cursor:pointer\" >";
+	echo "<td align=\"center\"> <input type=\"checkbox\"  name= \"chk=$i;\" </td>";	
+	foreach($arr as $key => $val) 
+	{
+
+		echo "<td>". $val ."</td>";
+				
+	}
+	echo "</tr>";
+$i++;
+}*/
+
+	//$row = mysql_fetch_row($res_data);
+	//echo $row."\nrow:";
+	/*if ($res_data && mysql_num_rows($res_data)) {
+        $numrows = mysql_num_rows($res_data);
+        $rowcount = 1;
+        print "There are $numrows people in usertable:<br /><br />";
+    
+        while ($row = mysql_fetch_assoc($res_data)) {
+            print "Row $rowcount<br />";
+    
+            while(list($var, $val) = each($row)) {
+                print "<B>$var</B>: $val<br />";
+            }
+    
+            print "<br />";
+            ++$rowcount;
+        }
+    }*/
+
+/*$i = 1;
+while($rs = mysql_fetch_array($res_data))
+{
+	echo "<tr onMouseDown=\"setData(" . $i .")\" onMouseOver=\"ChangeColor(this, true);\" 
+              onMouseOut=\"ChangeColor(this, false);\"  style=\"cursor:pointer\" >";
+	echo "<td align=\"center\"> <input type=\"checkbox\"  name= \"chk[];\" </td>";	
+	echo "<td id=" . $i++. ">" . $rs['username'] . "</td>";
+	echo "<td id=" . $i++ . ">" . $rs['email'] . "</td>";
+	echo "<td id=" . $i++ . ">" . $rs['company'] . "</td>";
+	echo "</tr>";
+}*/
 
 $i = 1;
 $c=0;
