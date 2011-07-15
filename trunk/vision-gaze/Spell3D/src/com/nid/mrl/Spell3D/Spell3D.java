@@ -1,7 +1,4 @@
 /*==============================================================================
-            Copyright (c) 2010-2011 QUALCOMM Incorporated.
-            All Rights Reserved.
-            Qualcomm Confidential and Proprietary
             
 @file 
     Spell3D.java
@@ -50,9 +47,7 @@ public class Spell3D extends Activity
     private static final String NATIVE_LIB_SAMPLE = "Spell3D";    
     private static final String NATIVE_LIB_QCAR = "QCAR"; 
     
-    //MarkerIdSQLiteOpenHelper class's object
-    //MarkerIdSQLiteOpenHelper helper;
-
+   
     // Our OpenGL view:
     private QCARSampleGLView mGlView;
     
@@ -257,12 +252,7 @@ public class Spell3D extends Activity
         mTextures = new Vector<Texture>();
         loadTextures();
         
-        //For adding the objects in the database
-        //addObjectsInDatabase();
- 
-        //For getting the objects from the database
-        //getObjectsInDatabase();
-        
+          
         // Query the QCAR initialization flags:
         mQCARFlags = getInitializationFlags();
         
@@ -278,6 +268,7 @@ public class Spell3D extends Activity
         mTextures.add(Texture.loadTextureFromApk("Hat.png", getAssets()));
     	mTextures.add(Texture.loadTextureFromApk("Cat.png", getAssets()));
     	mTextures.add(Texture.loadTextureFromApk("rCar.png", getAssets()));
+    	mTextures.add(Texture.loadTextureFromApk("OnlyGrey.png", getAssets()));	
     }
     
     

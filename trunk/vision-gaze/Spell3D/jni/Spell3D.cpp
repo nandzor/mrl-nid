@@ -1,10 +1,7 @@
 /*==============================================================================
-            Copyright (c) 2010-2011 QUALCOMM Incorporated.
-            All Rights Reserved.
-            Qualcomm Confidential and Proprietary
             
 @file 
-    Spell3Ds.cpp
+    Spell3D.cpp
 
 @brief
     Sample for Spell3Ds
@@ -84,7 +81,6 @@ JNIEXPORT void JNICALL
 Java_com_nid_mrl_Spell3D_Renderer3D_renderFrame(JNIEnv *env, jobject obj)
 {
     //LOG("Java_com_nid_mrl_Spell3D_Renderer3D_GLRenderer_renderFrame");
-    
     jclass activityClass = env->GetObjectClass(obj);
     jmethodID setMarkerIdMethodId = env->GetMethodID(activityClass,
                                                     "setMarkerId", "(II)V");
@@ -99,7 +95,7 @@ Java_com_nid_mrl_Spell3D_Renderer3D_renderFrame(JNIEnv *env, jobject obj)
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
     int flag_tracking=2;        //flag signifying whether it is first iteration of for loop (=0)or not
-    int objID=4;
+    int objID=3; 
 	// Did we find any trackables this frame?
     for(int tIdx = 0; tIdx < state.getNumActiveTrackables(); tIdx++)
     {
@@ -168,21 +164,21 @@ Java_com_nid_mrl_Spell3D_Renderer3D_renderFrame(JNIEnv *env, jobject obj)
                 numIndices =rCarNumVerts;
                 break;
             default:
-            	/*vertices = &QobjectVertices[0];
-                normals = &QobjectNormals[0];
-                indices = &QobjectIndices[0];
-                texCoords = &QobjectTexCoords[0];
-                numIndices = NUM_Q_OBJECT_INDEX;*/
+                float vVertices[] = {0.0f, 0.4f, 0.0f,-0.4f, -0.4f, 0.0f,0.4f, -0.4f, 0.0f};
+				glVertexAttribPointer(vertexHandle, 3, GL_FLOAT, GL_FALSE, 0, vVertices);
+				glEnableVertexAttribArray(vertexHandle);
+				numIndices =3;
                 break;
         }
        
        if((state.getNumActiveTrackables()==3)&&(tIdx==2)){
+                if(numIndices!=3){
                glVertexAttribPointer(vertexHandle, 3, GL_FLOAT, GL_FALSE, 0, vertices);
                glVertexAttribPointer(normalHandle, 3, GL_FLOAT, GL_FALSE, 0, normals);
                glVertexAttribPointer(textureCoordHandle, 2, GL_FLOAT, GL_FALSE,0, texCoords);
                glEnableVertexAttribArray(vertexHandle);
                glEnableVertexAttribArray(normalHandle);
-               glEnableVertexAttribArray(textureCoordHandle);
+               glEnableVertexAttribArray(textureCoordHandle);}
                 //***Mutiplying modelviewMatrix and projectionMatrix to find modeViewProjection matrix
                 QCAR::Matrix44F modelViewProjection;
                 SampleUtils::multiplyMatrix(&projectionMatrix.data[0],

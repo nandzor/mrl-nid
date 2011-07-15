@@ -1,8 +1,3 @@
-#==============================================================================
-#            Copyright (c) 2010-2011 QUALCOMM Incorporated.
-#            All Rights Reserved.
-#            Qualcomm Confidential and Proprietary
-#==============================================================================
 
 
 # An Android.mk file must begin with the definition of the LOCAL_PATH
