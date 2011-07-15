@@ -41,7 +41,7 @@ public class addSubtype extends ListActivity {
 		String keyword = o.toString();
 		//Toast.makeText(this, "You selected: " + keyword , Toast.LENGTH_LONG).show();
 		Cursor c = getPointManagerApplication().getTypeId(keyword);
-		int s_id = c.getInt(0);
+		long s_id = c.getLong(0);
 		if(subtypes.contains(keyword))
 		{
 		     subtype_id.remove(s_id);
