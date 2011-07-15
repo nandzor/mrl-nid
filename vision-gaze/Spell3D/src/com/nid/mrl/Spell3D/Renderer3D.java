@@ -1,7 +1,5 @@
 /*==============================================================================
-            Copyright (c) 2010-2011 QUALCOMM Incorporated.
-            All Rights Reserved.
-            Qualcomm Confidential and Proprietary
+  
             
 @file 
     Renderer3D.java
@@ -104,7 +102,7 @@ public class Renderer3D implements GLSurfaceView.Renderer
     {
     		
     		String markeridStr=markerid.toString();
-    		int objectID=4;
+    		int objectID=3;
     		String objectidArray[]=new String[7];
     		objectidArray[0]="7019";		//Hat
     		objectidArray[1]="2019";		//Cat
