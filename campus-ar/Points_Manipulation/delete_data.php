@@ -1,9 +1,9 @@
 <?php 
 $opt_arr=$_GET["operation"];
-$user="mrlnmd";
-$pwd="StHxMo3C";
-$db="mrlnmd"; 
-$host="mrlnmd.db.5537199.hostedresource.com";
+$user="root";
+$pwd="";
+$db="test"; 
+$host="localhost";
 $tablename="pointdaiict";
 mysql_connect($host,$user,$pwd) or die("Connection Failed");
 $dblink=mysql_select_db($db) or die("could not select the database");
