@@ -43,9 +43,6 @@ public class pointsManager extends Application {
             Toast.makeText(this, "misfunctioning open" + e.toString(),
                     Toast.LENGTH_LONG).show();
         }
-	 	// Create an array of Strings, that will be put to our ListActivity
-	
-      
       	   loadLocations();
 	}	
 
