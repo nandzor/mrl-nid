@@ -75,8 +75,8 @@ private void setViewClick() {
   private void addPoints() {
 	// TODO Auto-generated method stub
 	name_add = (EditText)findViewById(R.id.name);
-	latitude_add = (EditText) findViewById(R.id.lat_value);
-	longitude_add = (EditText) findViewById(R.id.long_value);
+	latitude_add = (TextView) findViewById(R.id.lat_value);
+	longitude_add = (TextView) findViewById(R.id.long_value);
 	l = new Locations();
     l.setName(name_add.getText().toString());
     l.setLatitude(new Double(latitude_add.getText().toString()));
