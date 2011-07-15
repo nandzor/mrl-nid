@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+		<string name="app_name">GoogleMaps</string>
+		<string name="add">add</string>
+		<string name="type">Select type</string>
+		<string name="done">Done</string>
+		<string name="cancel">cancel</string>
+	    <string-array name="TYPES">
+	        <item>Auto</item>
+    	    <item>Education</item>
+    	    <item>Food and Drink</item>
+    	    <item>Government</item>
+        	<item>Health</item>
+        	<item>Leisure</item>
+        	<item>Recreation</item>
+        	<item>Transport</item>
+        	<item>Travel</item>
+        	<item>Sports</item>
+        	<item>Services</item>
+        	<item>Shopping</item>
+        </string-array>
+        <string-array name="Food_and_Drink">
+	        <item>Bakery</item>
+    	    <item>Cafe</item>
+    	    <item>Fast Food</item>
+    	    <item>Pub</item>
+        	<item>Restaurant</item>
+        </string-array>
+        <string-array name="education">
+	        <item>College</item>
+    	    <item>Kindergarten</item>
+    	    <item>School</item>
+    	    <item>University</item>
+        </string-array>
+        <string-array name="Government">
+	        <item>Border Crossing</item>
+    	    <item>City Hall</item>
+    	    <item>Court</item>
+    	    <item>Embassy</item>
+        	<item>Fire Station</item>
+        	<item>Police</item>
+        	<item>Prison</item>
+        </string-array>
+        <string-array name="Auto">
+	        <item>Auto dealer</item>
+    	    <item>Auto parts accessories</item>
+    	    <item>Car rental</item>
+    	    <item>Car repair</item>
+        	<item>Car sharing</item>
+        	<item>Car wash</item>
+        	<item>Fuel Station</item>
+        	<item>Motorcycle dealer</item>
+        </string-array>
+        <string-array name="Health">
+	        <item>Dentist</item>
+    	    <item>Doctor</item>
+    	    <item>Hospital</item>
+    	    <item>Pharmacy</item>
+        	<item>Veterinary</item>
+        </string-array>
+        <string-array name="Leisure">
+	        <item>Art Gallery</item>
+    	    <item>Arts centre</item>
+    	    <item>Artwork</item>
+    	    <item>Cinema</item>
+        	<item>Museum</item>
+        	<item>Nightclub</item>
+        	<item>Theatre</item>
+        	<item>Theme park</item>
+        	<item>Water park</item>
+        	<item>Zoo</item>
+        </string-array>
+        <string-array name="Recreation">
+	        <item>Aerialway station</item>
+    	    <item>Archaeological site</item>
+    	    <item>Beach</item>
+    	    <item>Cable car</item>
+        	<item>Castle</item>
+        	<item>Cave entrance</item>
+        	<item>Farmyard</item>
+        	<item>Fishing</item>
+        	<item>Fountain</item>
+        	<item>Garden</item>
+        	<item>Glacier</item>
+        	<item>Information</item>
+        	<item>Marina</item>
+        	<item>Memorial</item>
+        	<item>Monument</item>
+        	<item>Nature reserve</item>
+        	<item>Park</item>
+        </string-array>
+        <string-array name="Transport">
+	        <item>Bicycle parking</item>
+    	    <item>Bicycle rental</item>
+    	    <item>Bus stop</item>
+    	    <item>Crossing point</item>
+        	<item>Ferry stop</item>
+        	<item>Gate</item>
+        	<item>Parking</item>
+        	<item>Parking meter</item>
+        	<item>Taxi stop</item>
+        	<item>Traffic signals</item>
+        	<item>Train station</item>
+        	<item>Tram stop</item>
+        </string-array>
+        <string-array name="Travel">
+	        <item>Camp site</item>
+    	    <item>Chalet</item>
+    	    <item>Guest house</item>
+    	    <item>Hostel</item>
+        	<item>Hotel</item>
+        	<item>Motel</item>
+        </string-array>
+        <string-array name="Sports">
+	        <item>Basketball Court</item>
+    	    <item>Cricket Ground</item>
+    	    <item>Cricket net</item>
+    	    <item>Golf</item>
+        	<item>Badminton Court</item>
+        	<item>Table Tennis</item>
+        	<item>Bowling</item>
+        	<item>Football Ground</item>
+        	<item>Volleyball Ground</item>
+        	<item>Track</item>
+        	<item>Skating</item>
+        	<item>Sport centre</item>
+        	<item>Stadium</item>
+        	<item>Rugby</item>
+        	<item>Swimming</item>
+        	<item>Tennis</item>
+        </string-array>
+        <string-array name="Shopping">
+	        <item>Adult</item>
+    	    <item>Alcohol</item>
+    	    <item>Art supplies</item>
+    	    <item>Bicycle</item>
+        	<item>Books</item>
+        	<item>Charity Shop</item>
+        	<item>Computers</item>
+        	<item>Cosmetics</item>
+        	<item>Departmental store</item>
+        	<item>Electronics</item>
+        	<item>Fish</item>
+        	<item>Florist</item>
+        	<item>Furniture</item>
+        	<item>Garden centre</item>
+        	<item>General sporting goods</item>
+        	<item>Guns and Knives</item>
+        	<item>Hardware</item>
+        	<item>Jewelers</item>
+        	<item>Leather Goods</item>
+        	<item>Lingerie</item>
+        	<item>Mobile phones</item>
+        	<item>Music and Video</item>
+        	<item>Musical Instruments</item>
+        	<item>Pet and accessories</item>
+        	<item>Phones</item>
+        	<item>Photo</item>
+        	<item>Shoes</item>
+        	<item>Souvenirs</item>
+        	<item>Stationery</item>
+        	<item>Supermarket</item>
+        	<item>Textile</item>
+        	<item>Tobacco</item>
+        	<item>Tools and supplies</item>
+        	<item>Toys</item>
+        </string-array>
+        <string-array name="Services">
+	        <item>ATM</item>
+    	    <item>Bank</item>
+    	    <item>Drinking water</item>
+    	    <item>Dry cleaning</item>
+        	<item>Estate Agent</item>
+        	<item>Hairdresser</item>
+        	<item>Internet Cafe</item>
+        	<item>Laundary</item>
+        	<item>Post box</item>
+        	<item>Public toilets</item>
+        	<item>Recycling</item>
+        	<item>Surveillance</item>
+        	<item>Telephone</item>
+        	<item>Travel agency</item>
+        	<item>Waste disposal</item>
+        </string-array>
+</resources>
